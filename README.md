@@ -3,7 +3,7 @@
 A responsive e-commerce web application built with **Next.js 14**, **TypeScript**, and **Tailwind CSS** as part of the **Whatbytes Frontend Assignment**.  
 It features product listing, filtering, search, product detail pages, and a functional shopping cart with persistent state.
 
-🚀 **Live Demo:** [View on Vercel](https://your-vercel-link.vercel.app)
+🚀 **Live Demo:** [View on Vercel](https://ecommerce-demo-black-seven.vercel.app/)
 
 ---
 
