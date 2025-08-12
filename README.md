@@ -1,36 +1,109 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛍️ Ecommerce Demo
 
-## Getting Started
+A responsive e-commerce web application built with **Next.js 14**, **TypeScript**, and **Tailwind CSS** as part of the **Whatbytes Frontend Assignment**.  
+It features product listing, filtering, search, product detail pages, and a functional shopping cart with persistent state.
 
-First, run the development server:
+🚀 **Live Demo:** [View on Vercel](https://your-vercel-link.vercel.app)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## 📌 Features
+
+### **Home Page (/**)
+- Responsive product grid: **3 columns** on desktop, **2** on tablet, **1** on mobile.
+- Category filter, price range slider, and brand filter.
+- Search bar with instant filtering.
+- Quick "Add to Cart" button on each product card.
+- Dynamic badge count for cart items.
+
+### **Product Detail Page (/product/[id])**
+- Large product image display.
+- Product title, price, description, category.
+- Quantity selector and add-to-cart button.
+- Optional star rating display.
+
+### **Cart Page (/cart)**
+- List of all items added to cart.
+- Quantity update controls.
+- Remove item option.
+- Price summary.
+- State persisted in **localStorage**.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Framework:** [Next.js 14](https://nextjs.org/)
+- **Language:** [TypeScript](https://www.typescriptlang.org/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Icons:** [lucide-react](https://lucide.dev/)
+- **State Management:** React Context / Zustand / Redux (based on your implementation)
+- **Deployment:** [Vercel](https://vercel.com/)
+
+---
+
+## 📂 Folder Structure
+
+```
+src/
+ ├── app/                # App Router pages
+ │    ├── cart/           # Cart page
+ │    ├── product/[id]/   # Product detail page
+ │    ├── layout.tsx      # Root layout
+ │    ├── page.tsx        # Home page
+ │    └── globals.css     # Global styles
+ ├── components/          # Reusable UI components
+ ├── lib/                 # Product data and helpers
+ ├── store/               # State management files
+ └── types/               # TypeScript type definitions
+public/
+ ├── images/              # Product images
+ └── icons                # UI icons
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 Getting Started
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 1️⃣ Clone the repository
+```bash
+git clone https://github.com/your-username/Ecommerce-demo.git
+cd Ecommerce-demo
+```
 
-## Learn More
+### 2️⃣ Install dependencies
+```bash
+npm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+### 3️⃣ Run the development server
+```bash
+npm run dev
+```
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📦 Build for Production
+```bash
+npm run build
+npm run start
+```
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📜 Assignment Requirements Fulfilled
+- ✅ Product listing with responsive design.
+- ✅ Filters (category, price).
+- ✅ Search functionality.
+- ✅ Product detail page.
+- ✅ Shopping cart with persistent state.
+- ✅ Dynamic routing with Next.js.
+- ✅ Deployment to Vercel.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 📄 License
+This project is licensed under the MIT License.
+
+---
