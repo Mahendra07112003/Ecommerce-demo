@@ -3,7 +3,7 @@
 A responsive e-commerce web application built with **Next.js 14**, **TypeScript**, and **Tailwind CSS** as part of the **Whatbytes Frontend Assignment**.  
 It features product listing, filtering, search, product detail pages, and a functional shopping cart with persistent state.
 
-🚀 **Live Demo:** [View on Vercel](https://your-vercel-link.vercel.app)
+🚀 **Live Demo:** [View on Vercel](https://ecommerce-demo-black-seven.vercel.app/)
 
 ---
 
@@ -11,8 +11,9 @@ It features product listing, filtering, search, product detail pages, and a func
 
 ### **Home Page (/**)
 - Responsive product grid: **3 columns** on desktop, **2** on tablet, **1** on mobile.
-- Category filter, price range slider, and brand filter.
+- Category filter and price range slider.
 - Search bar with instant filtering.
+- URL-based filters (e.g., `?category=electronics&price=0-500&q=phone`).
 - Quick "Add to Cart" button on each product card.
 - Dynamic badge count for cart items.
 
@@ -33,11 +34,11 @@ It features product listing, filtering, search, product detail pages, and a func
 
 ## 🛠️ Tech Stack
 
-- **Framework:** [Next.js 14](https://nextjs.org/)
+- **Framework:** [Next.js 15](https://nextjs.org/)
 - **Language:** [TypeScript](https://www.typescriptlang.org/)
 - **Styling:** [Tailwind CSS](https://tailwindcss.com/)
 - **Icons:** [lucide-react](https://lucide.dev/)
-- **State Management:** React Context / Zustand / Redux (based on your implementation)
+- **State Management:** Zustand
 - **Deployment:** [Vercel](https://vercel.com/)
 
 ---
