@@ -77,7 +77,10 @@ cd Ecommerce-demo
 npm install
 ```
 
-### 3️⃣ Run the development server
+### 3️⃣ Create env file
+Copy `.env.example` to `.env` and fill values.
+
+### 4️⃣ Run the development servers
 ```bash
 npm run dev
 ```
@@ -90,6 +93,38 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 npm run build
 npm run start
 ```
+
+---
+
+## 🔌 Backend API (Express + MongoDB)
+
+Runs alongside Next.js via `npm run dev`. Standalone:
+
+```bash
+npm run start:server
+```
+
+### REST Endpoints
+- `POST /api/auth/register` – create user (admin or customer)
+- `POST /api/auth/login` – login, sets cookie and returns token
+- `POST /api/auth/logout` – clear session
+- `GET /api/products` – list products (q, category, minPrice, maxPrice)
+- `GET /api/products/:id` – product detail
+- `POST /api/products` – create (admin)
+- `PUT /api/products/:id` – update (admin)
+- `DELETE /api/products/:id` – delete (admin)
+- `POST /api/orders` – create order (customer)
+- `GET /api/orders/me` – my orders
+- `GET /api/orders` – all orders (admin)
+- `GET /api/cart` – get my cart
+- `POST /api/cart/items` – add/update item
+- `DELETE /api/cart/items/:productId` – remove item
+- `DELETE /api/cart` – clear cart
+- `POST /api/upload` – upload image (admin, optional Cloudinary)
+
+### Environment Variables
+See `.env.example` for all required variables:
+- `MONGO_URI`, `JWT_SECRET`, `PORT`, `CLIENT_ORIGIN`, `NEXT_PUBLIC_API_BASE_URL`, and optional Cloudinary credentials.
 
 ---
 

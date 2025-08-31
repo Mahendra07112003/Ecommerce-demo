@@ -2,10 +2,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useCartStore, selectTotals } from "@/store/cart";
+import { useAppDispatch, useAppSelector } from "@/store/redux/hooks";
+import { increase, decrease, remove, clear, selectTotals } from "@/store/redux/slices/cartSlice";
 
 export default function CartPage() {
-  const { items, increase, decrease, remove, clear } = useCartStore();
+  const dispatch = useAppDispatch();
+  const items = useAppSelector((s) => s.cart.items);
   const totals = selectTotals(items);
 
   if (items.length === 0) {
@@ -32,11 +34,11 @@ export default function CartPage() {
               <div className="text-sm text-gray-600">${item.price}</div>
             </div>
             <div className="flex items-center gap-2">
-              <button onClick={() => decrease(item.productId)} className="px-2 py-1 border rounded">-</button>
+              <button onClick={() => dispatch(decrease(item.productId))} className="px-2 py-1 border rounded">-</button>
               <span>{item.quantity}</span>
-              <button onClick={() => increase(item.productId)} className="px-2 py-1 border rounded">+</button>
+              <button onClick={() => dispatch(increase(item.productId))} className="px-2 py-1 border rounded">+</button>
             </div>
-            <button onClick={() => remove(item.productId)} className="text-red-600 text-sm">Remove</button>
+            <button onClick={() => dispatch(remove(item.productId))} className="text-red-600 text-sm">Remove</button>
           </div>
         ))}
       </div>
@@ -51,8 +53,8 @@ export default function CartPage() {
           <span>Subtotal</span>
           <span>${totals.totalPrice.toFixed(2)}</span>
         </div>
-        <button className="w-full text-white rounded-md py-2" style={{ backgroundColor: "var(--primary-dark)" }}>Checkout</button>
-        <button onClick={clear} className="w-full mt-2 border rounded-md py-2">Clear Cart</button>
+        <Link href="/checkout" className="block w-full text-center text-white rounded-md py-2" style={{ backgroundColor: "var(--primary-dark)" }}>Checkout</Link>
+        <button onClick={() => dispatch(clear())} className="w-full mt-2 border rounded-md py-2">Clear Cart</button>
       </div>
     </div>
   );

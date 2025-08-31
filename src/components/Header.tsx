@@ -2,16 +2,16 @@
 
 import Link from "next/link";
 import { ShoppingCart, Search, User } from "lucide-react";
+import Link from "next/link";
 import { useFilterStore } from "@/store/filters";
-import { useCartStore } from "@/store/cart";
-import { selectTotals } from "@/store/cart";
-import { useMemo } from "react";
+import { useAppSelector } from "@/store/redux/hooks";
+import { selectTotals } from "@/store/redux/slices/cartSlice";
 
 export default function Header() {
   const search = useFilterStore((s) => s.search);
   const setSearch = useFilterStore((s) => s.setSearch);
-  const items = useCartStore((s) => s.items);
-  const totals = useMemo(() => selectTotals(items), [items]);
+  const items = useAppSelector((s) => s.cart.items);
+  const totals = selectTotals(items);
 
   return (
     <header className="sticky top-0 z-30  text-white" style={{ backgroundColor: "var(--primary-dark)" }}>
@@ -41,9 +41,9 @@ export default function Header() {
               </span>
             )}
           </Link>
-          <div className="hidden sm:block">
+          <Link href="/auth/login" className="hidden sm:block">
             <User className="h-6 w-6" />
-          </div>
+          </Link>
         </div>
       </div>
     </header>
