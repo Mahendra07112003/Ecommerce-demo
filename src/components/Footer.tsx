@@ -4,7 +4,7 @@ import { Facebook, Twitter, Instagram } from "lucide-react";
 export default function Footer() {
   return (
     <footer className="text-white mt-16" style={{ backgroundColor: "var(--primary-dark)" }}>
-      <div className="mx-auto max-w-7xl px-4 py-10 grid gap-8 md:grid-cols-3">
+      <div className="mx-auto max-w-7xl px-8 py-10 grid gap-8 sm:md:grid-cols-3  justify-center">
         <div>
           <h4 className="font-semibold mb-3">Filters</h4>
           <ul className="space-y-2 text-sm opacity-90">

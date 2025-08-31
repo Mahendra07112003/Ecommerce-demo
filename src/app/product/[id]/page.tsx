@@ -2,7 +2,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { products } from "@/lib/products";
 import StarRating from "@/components/StarRating";
-import AddToCartButton from "@/components/AddToCartButton";
+import ProductPurchaseActions from "@/components/ProductPurchaseActions";
 
 export default async function ProductDetail({
   params,
@@ -13,7 +13,7 @@ export default async function ProductDetail({
   const product = products.find((p) => p.id === id);
   if (!product) return notFound();
 
-  // This is a server component. Use a client wrapper button to add to cart below.
+  // This is a server component. Use a client wrapper for quantity and add to cart below.
   return (
     <div className="grid gap-8 md:grid-cols-2">
       <div className="relative w-full aspect-square rounded-lg overflow-hidden bg-white border">
@@ -27,9 +27,8 @@ export default async function ProductDetail({
         </div>
         <p className="text-sm text-gray-700 mb-4">{product.description}</p>
         <div className="text-sm text-gray-600 mb-6">Category: {product.category}</div>
-        <AddToCartButton product={product} />
+        <ProductPurchaseActions product={product} />
       </div>
     </div>
   );
 }
-
