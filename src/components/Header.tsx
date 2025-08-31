@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { ShoppingCart, Search, User } from "lucide-react";
-import Link from "next/link";
 import { useFilterStore } from "@/store/filters";
 import { useAppSelector } from "@/store/redux/hooks";
 import { selectTotals } from "@/store/redux/slices/cartSlice";
