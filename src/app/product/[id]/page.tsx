@@ -1,17 +1,15 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { products } from "@/lib/products";
 import StarRating from "@/components/StarRating";
 import ProductPurchaseActions from "@/components/ProductPurchaseActions";
+import { API_BASE_URL } from "@/lib/api";
 
-export default async function ProductDetail({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}) {
-  const { id } = await params;
-  const product = products.find((p) => p.id === id);
-  if (!product) return notFound();
+export default async function ProductDetail({ params }: { params: { id: string } }) {
+  const id = params.id;
+  const res = await fetch(`${API_BASE_URL}/products/${id}`, { cache: "no-store" });
+  if (!res.ok) return notFound();
+  const data = await res.json();
+  const product = data.product;
 
   // This is a server component. Use a client wrapper for quantity and add to cart below.
   return (

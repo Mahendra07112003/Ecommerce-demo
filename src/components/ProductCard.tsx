@@ -4,14 +4,15 @@ import Image from "next/image";
 import Link from "next/link";
 import StarRating from "./StarRating";
 import { Product } from "@/types/product";
-import { useCartStore } from "@/store/cart";
+import { useAppDispatch } from "@/store/redux/hooks";
+import { addItem } from "@/store/redux/slices/cartSlice";
 
-export default function ProductCard({ product }: { product: Product }) {
-  const addItem = useCartStore((s) => s.addItem);
+export default function ProductCard({ product }: { product: Product & { _id?: string } }) {
+  const dispatch = useAppDispatch();
 
   return (
     <div className="rounded-lg border border-gray-200 p-3 bg-white shadow-sm">
-      <Link href={`/product/${product.id}`} className="block">
+      <Link href={`/product/${(product as any)._id || product.id}`} className="block">
         <div className="relative w-full h-40 overflow-hidden rounded-md">
           <Image
             src={product.imageUrl}
@@ -27,7 +28,7 @@ export default function ProductCard({ product }: { product: Product }) {
         <p className="text-[color:var(--primary-dark)] font-bold">${product.price}</p>
         <StarRating value={product.rating ?? 0} />
         <button
-          onClick={() => addItem(product)}
+          onClick={() => dispatch(addItem({ product }))}
           className="mt-2 inline-flex items-center justify-center rounded-md text-white px-3 py-1.5 text-sm"
           style={{ backgroundColor: "var(--primary-dark)" }}
         >
